@@ -1,0 +1,21 @@
+/**app.wxss**/
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+} 
+.global-icon {
+  display: block;
+  margin: 20px auto; /* 上下边距为 20px, 水平居中 */
+  width: 90px; /* 图标宽度 */
+  height: 90px; /* 图标高度 */
+  background-image: url('C:/Users/Xu/WeChatProjects/miniprogram-5/icons/global-icon.png'); /* 图标路径 */
+  background-size: cover; /* 确保图标覆盖整个元素 */
+  border-radius: 20%; /* 添加圆角效果，50% 会创建一个完美的圆形 */
+}
+
+
