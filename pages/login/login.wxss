@@ -1,0 +1,85 @@
+/**index.wxss**/
+.form-wrapper {
+  padding: 10px;
+}
+
+.registration-title {
+  text-align: center; 
+  font-size: 24px; /* Modify font size as needed */
+  display: block; /* Ensure the title takes up its own line */
+  margin-bottom: 20px; /* Add some spacing below the title */
+}
+
+.input-wrapper {
+  margin-bottom: 15px;
+  margin-left: 15px;
+}
+
+.label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.send-code-btn {
+  display: flex;
+  margin-left: 10px;
+  justify-content: center; /* 水平居中 */
+  align-items: center; /* 垂直居中 */
+  width: 50%;
+  height: 40px;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+.input{
+  width: 80%;
+  height: 40px;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+.usernameinput{
+  width: 80%;
+  height: 40px;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+.input-btn-wrapper {
+  display: flex;
+  align-items: center; /* 垂直居中对齐输入框和按钮 */
+}
+
+.code-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.code-input {
+  flex: 1;
+}
+
+.send-code-btn {
+  margin-right: 15px;
+  width: 150px; /* Adjust width as needed */
+  flex-shrink: 0;
+}
+
+.register-btn {
+  background-color: #007aff;
+  width: 200px; /* Adjust width as needed */
+  height: 40px; /* Adjust height as needed */
+  font-size: 16px; /* Adjust font size as needed */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  margin-top: 8px;
+}
+.forget-btn {
+  text-align: center;
+  display: block;
+  margin-top: 8px;
+  text-decoration: underline;
+  color: black;
+}
+
+
+

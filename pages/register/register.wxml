@@ -1,0 +1,42 @@
+<image src="/icons/global-icon.png" class="global-icon"></image>
+<view class="form-wrapper">
+  <!-- 欢迎注册 -->
+  <text class="registration-title">欢迎注册</text>
+  
+  <!-- 用户名输入框 -->
+  <view class="input-wrapper">
+    <text class="label">用户名</text>
+    <input type="text" class="input" placeholder="请输入用户名" bindinput="onUsernameChange" />
+  </view>
+
+  <!-- 邮箱输入框 -->
+  <view class="input-wrapper">
+    <text class="label">邮箱</text>
+    <input type="text" class="input" placeholder="请输入邮箱" bindinput="onEmailChange" />
+  </view>
+
+  <!-- 邮箱验证码发送区域 -->
+  <view class="input-wrapper">
+    <text class="label">验证码</text>
+    <view class="input-btn-wrapper">
+    <input type="text" class="input" placeholder="输入验证码" bindinput="onCodeChange" />
+    <button class="send-code-btn" bindtap="onSendCode" disabled="{{codeSending}}">{{btnText}}</button>
+    </view>
+    
+  </view>
+
+  <!-- 密码输入框 -->
+  <view class="input-wrapper">
+    <text class="label">密码</text>
+    <input type="password" class="input" placeholder="设置密码" bindinput="onPasswordChange" />
+  </view>
+
+  <!-- 确认密码输入框 -->
+  <view class="input-wrapper">
+    <text class="label">确认密码</text>
+    <input type="password" class="input" placeholder="确认密码" bindinput="onConfirmPasswordChange" />
+  </view>
+
+  <!-- 注册按钮 -->
+  <button class="register-btn" bindtap="onRegister">注册</button>
+</view>
