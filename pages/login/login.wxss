@@ -63,7 +63,7 @@
   flex-shrink: 0;
 }
 
-.register-btn {
+.login-btn {
   background-color: #007aff;
   width: 200px; /* Adjust width as needed */
   height: 40px; /* Adjust height as needed */
@@ -74,6 +74,13 @@
   margin-top: 8px;
 }
 .forget-btn {
+  text-align: center;
+  display: block;
+  margin-top: 8px;
+  text-decoration: underline;
+  color: black;
+}
+.register-btn {
   text-align: center;
   display: block;
   margin-top: 8px;

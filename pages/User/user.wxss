@@ -1,0 +1,90 @@
+/**index.wxss**/
+.form-wrapper {
+  padding: 10px;
+}
+
+.page-title {
+  text-align: center; 
+  font-size: 24px; /* Modify font size as needed */
+  display: block; /* Ensure the title takes up its own line */
+  margin-bottom: 20px; /* Add some spacing below the title */
+}
+
+.label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.value {
+  width: 80%;
+  height: 40px;
+  padding: 0 10px;
+  box-sizing: border-box;
+  font-size: 20px;
+  color: black;
+}
+
+.info-wrapper {
+  margin-bottom: 15px;
+  margin-left: 15px;
+}
+
+.input{
+  width: 80%;
+  height: 40px;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+.usernameinput{
+  width: 80%;
+  height: 40px;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+.code-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.code-input {
+  flex: 1;
+}
+
+.send-code-btn {
+  margin-right: 15px;
+  width: 150px; /* Adjust width as needed */
+  flex-shrink: 0;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between; /* Optional: Adjust alignment */
+  padding: 10px; /* Optional: Add padding if needed */
+}
+
+.quit-btn {
+  margin-right: 0; /* Remove margin from the last button */
+  background-color: #eb2e2e;
+  width: 200px; /* Adjust width as needed */
+  height: 40px; /* Adjust height as needed */
+  font-size: 16px; /* Adjust font size as needed */
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+.forgot-password-btn {
+  flex: 1; /* Optional: Adjust width of buttons */
+  margin-right: 10px; /* Optional: Add space between buttons */
+  background-color: #007aff;
+  width: 200px; /* Adjust width as needed */
+  height: 40px; /* Adjust height as needed */
+  font-size: 16px; /* Adjust font size as needed */
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+
+

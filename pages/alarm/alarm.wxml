@@ -1,0 +1,32 @@
+<image src="/icons/alarm.png" class="alarm-icon"></image>
+<view class="form-wrapper">
+  <text class="registration-title">设置定时提醒</text>
+  
+  <!-- 日期输入框 -->
+  <view class="input-wrapper">
+    <text class="label">提醒时间</text>
+    <van-datetime-picker type="datetime" value="{{ currentDate }}" min-date="{{ minDate }}" max-date="{{ maxDate }}" bind:input="onInput" item-height="30" visible-item-count="3"/>
+  </view>
+
+  <!-- 类型选择框 -->
+  <view class="input-wrapper">
+    <text class="label">运动类型</text>
+    <van-radio-group value="{{ radio }}"bind:change="onChange" direction="horizontal">
+      <van-radio name="1" icon-size="25px" >跑步</van-radio>
+      <van-radio name="2" icon-size="25px" >足球　</van-radio>
+      <van-radio name="3" icon-size="25px" >排球</van-radio>
+      <van-radio name="4" icon-size="25px" >游泳</van-radio>
+      <van-radio name="5" icon-size="25px" >篮球</van-radio>
+      <van-radio name="6" icon-size="25px" >羽毛球</van-radio>
+      <van-radio name="7" icon-size="25px" >骑行</van-radio>
+      <van-radio name="8" icon-size="25px" >健身</van-radio>
+      <van-radio name="9" icon-size="25px" >登山</van-radio>
+      <van-radio name="10" icon-size="25px" >乒乓球</van-radio>
+      <van-radio name="11" icon-size="25px" >其他</van-radio>
+    </van-radio-group>
+  </view>
+  
+  <!-- 注册按钮 -->
+  <view class="spacer"></view>
+  <button class="post-btn" bindtap="onPost">发布</button>
+</view>

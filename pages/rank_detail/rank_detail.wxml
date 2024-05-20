@@ -1,0 +1,25 @@
+<view class="container">
+  <view class="detail-info">
+    <view class="info-wrapper">
+      <text class="label">水瓶选手</text>
+      <text class="value">{{person}}</text>
+    </view>
+    <view class="info-wrapper">
+      <text class="label">性别</text>
+      <text class="value">{{gender}}</text>
+    </view>
+    <view class="info-wrapper">
+      <text class="label">运动总时长</text>
+      <text class="value">{{time_a}}分钟</text>
+    </view>
+    <view class="info-wrapper">
+      <text class="label">周运动时长</text>
+      <text class="value">{{time_w}}分钟</text>
+    </view>
+    <view class="info-wrapper">
+      <text class="label">打卡次数</text>
+      <text class="value">{{num}}次</text>
+    </view>
+  </view>
+</view>
+

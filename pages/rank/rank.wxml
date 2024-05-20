@@ -1,0 +1,23 @@
+<image src="/icons/rank.png" class="global-icon"></image>
+<view class="form-wrapper">
+  <!-- 欢迎 -->
+  <text class="registration-title">水瓶排名</text>
+
+  <!-- 可滚动的内容部分 -->
+  <scroll-view scroll-y="true" class="scroll-view">
+    <view class="card" wx:for="{{cards}}" wx:key="index" bindtap="onCardTap" data-card="{{item}}">
+      <text class="card-title">{{item.rank}}</text>
+      <text class="card-description">{{item.person}}</text>
+    </view>
+  </scroll-view>
+
+<!-- 
+  <van-tabbar active="{{ active }}" bind:change="onChange">
+    <van-tabbar-item name="community" icon="smile-comment-o">社区</van-tabbar-item>
+    <van-tabbar-item name="home" icon="home-o">主界面</van-tabbar-item>
+    <van-tabbar-item name="user" icon="contact-o">个人中心</van-tabbar-item>
+  </van-tabbar>
+  tabbar -->
+
+</view>
+

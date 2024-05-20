@@ -1,0 +1,53 @@
+<image src="/icons/congrats.png" class="congrats-icon"></image>
+<view class="form-wrapper">
+  <!-- 欢迎注册 -->
+  <text class="registration-title">请填写打卡信息</text>
+  
+  <!-- 日期输入框 -->
+  <view class="input-wrapper">
+    <text class="label">运动日期</text>
+    <input type="text" class="input" placeholder="请输入运动日期 如2024/5/12" bindinput="onDateChange" />
+  </view>
+
+  <!-- 时长输入框 -->
+  <view class="input-wrapper">
+    <text class="label">运动时长(分钟)</text>
+    <input type="text" class="input" placeholder="请输入运动时长" bindinput="onTimeChange" />
+  </view>
+
+  <!-- 类型选择框 -->
+  <view class="input-wrapper">
+    <text class="label">运动类型</text>
+    <van-radio-group value="{{ radio }}"bind:change="onChange" direction="horizontal">
+      <van-radio name="1" icon-size="25px" >跑步</van-radio>
+      <van-radio name="2" icon-size="25px" >足球　</van-radio>
+      <van-radio name="3" icon-size="25px" >排球</van-radio>
+      <van-radio name="4" icon-size="25px" >游泳</van-radio>
+      <van-radio name="5" icon-size="25px" >篮球</van-radio>
+      <van-radio name="6" icon-size="25px" >羽毛球</van-radio>
+      <van-radio name="7" icon-size="25px" >骑行</van-radio>
+      <van-radio name="8" icon-size="25px" >健身</van-radio>
+      <van-radio name="9" icon-size="25px" >登山</van-radio>
+      <van-radio name="10" icon-size="25px" >乒乓球</van-radio>
+      <van-radio name="11" icon-size="25px" >其他</van-radio>
+    </van-radio-group>
+  </view>
+
+  <!-- 地点输入框 -->
+  <view class="input-wrapper">
+    <text class="label">运动地点</text>
+    <input type="password" class="input" placeholder="请输入运动地点" bindinput="onPositionChange" />
+  </view>
+
+  <!-- 图片输入框 -->
+  <view class="input-wrapper">
+    <text class="label">打卡图片</text>
+  </view>
+
+  <view class = "center-container">
+    <van-uploader file-list="{{ fileList }}" bind:after-read="afterRead" />
+  </view>
+  
+  <!-- 注册按钮 -->
+  <button class="post-btn" bindtap="onPost">发布</button>
+</view>

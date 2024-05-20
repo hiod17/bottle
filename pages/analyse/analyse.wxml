@@ -1,0 +1,27 @@
+<view class="container">
+  <image src="/icons/statistics.png" class="global-icon"></image>
+  <text class="registration-title">用户数据统计</text>
+  <view class="detail-info">
+    <view class="info-wrapper">
+      <text class="label">运动总时长</text>
+      <text class="value">{{time_a}}分钟</text>
+    </view>
+    <view class="info-wrapper">
+      <text class="label">周运动时长</text>
+      <text class="value">{{time_w}}分钟</text>
+    </view>
+    <view class="info-wrapper">
+      <text class="label">历史最爱运动</text>
+      <text class="value">{{type_all}}</text>
+    </view>
+    <view class="info-wrapper">
+      <text class="label">周最爱运动</text>
+      <text class="value">{{type_week}}</text>
+    </view>
+    <view class="info-wrapper">
+      <text class="label">打卡次数</text>
+      <text class="value">{{num}}次</text>
+    </view>
+  </view>
+</view>
+

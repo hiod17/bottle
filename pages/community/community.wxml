@@ -1,0 +1,38 @@
+<!-- <view class="container">
+  滚动图片展示栏
+  <swiper class="swiper-container" autoplay="true" interval="3000" duration="500" indicator-dots="true" circular="true">
+    <swiper-item>
+      <image src="/icons/global-icon.png" mode="aspectFill" class="swiper-image"></image>
+    </swiper-item>
+    <swiper-item>
+      <image src="/icons/global-icon.png" mode="aspectFill" class="swiper-image"></image>
+    </swiper-item>
+    <swiper-item>
+      <image src="/icons/global-icon.png" mode="aspectFill" class="swiper-image"></image>
+    </swiper-item>
+  </swiper>
+</view> -->
+
+<image src="/icons/global-icon.png" class="global-icon"></image>
+<view class="form-wrapper">
+  <!-- 欢迎 -->
+  <text class="registration-title">打卡社区</text>
+
+  <!-- 可滚动的内容部分 -->
+  <scroll-view scroll-y="true" class="scroll-view">
+    <view class="card" wx:for="{{cards}}" wx:key="index" bindtap="onCardTap" data-card="{{item}}">
+      <image src="{{item.image}}" class="card-image"></image>
+      <text class="card-title">{{item.person}}</text>
+      <text class="card-description">{{item.time}}</text>
+    </view>
+  </scroll-view>
+
+<!-- tabbar -->
+  <van-tabbar active="{{ active }}" bind:change="onChange">
+    <van-tabbar-item name="community" icon="smile-comment-o">社区</van-tabbar-item>
+    <van-tabbar-item name="home" icon="home-o">主界面</van-tabbar-item>
+    <van-tabbar-item name="user" icon="contact-o">个人中心</van-tabbar-item>
+  </van-tabbar>
+
+</view>
+

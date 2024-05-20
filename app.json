@@ -1,8 +1,21 @@
 {
   "pages": [
+    "pages/entrance/main",
+    "pages/login/login",
     "pages/register/register",
-    "pages/logs/logs"
+    "pages/password/forgot_pass",
+    "pages/community/community",
+    
+    "pages/community/detail",
+    "pages/User/user",
+    "pages/password/res_pass",
+    "pages/alarm/alarm",
+    "pages/analyse/analyse",
+    "pages/clock_in/clock_in",
+    "pages/rank/rank",
+    "pages/rank_detail/rank_detail"
   ],
+
   "window": {
     "navigationBarTextStyle": "black",
     "navigationBarTitleText": "水瓶打卡",
@@ -10,5 +23,13 @@
   },
   "componentFramework": "glass-easel",
   "sitemapLocation": "sitemap.json",
-  "lazyCodeLoading": "requiredComponents"
+  "lazyCodeLoading": "requiredComponents",
+  "usingComponents": {
+    "van-icon": "@vant/weapp/icon/index",
+    "van-tabbar": "@vant/weapp/tabbar/index",
+  "van-tabbar-item": "@vant/weapp/tabbar-item/index",
+  "van-radio": "@vant/weapp/radio/index",
+  "van-radio-group": "@vant/weapp/radio-group/index",
+  "van-datetime-picker": "@vant/weapp/datetime-picker/index"
+  }  
 }

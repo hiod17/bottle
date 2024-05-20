@@ -1,0 +1,22 @@
+<view class="container">
+  <image src="{{image}}" class="detail-image"></image>
+  <view class="detail-info">
+    <view class="info-wrapper">
+      <text class="label">打卡人</text>
+      <text class="value">{{person}}</text>
+    </view>
+    <view class="info-wrapper">
+      <text class="label">打卡地点</text>
+      <text class="value">{{location}}</text>
+    </view>
+    <view class="info-wrapper">
+      <text class="label">打卡种类</text>
+      <text class="value">{{type}}</text>
+    </view>
+    <view class="info-wrapper">
+      <text class="label">简介</text>
+      <text class="value">{{brief}}</text>
+    </view>
+  </view>
+</view>
+

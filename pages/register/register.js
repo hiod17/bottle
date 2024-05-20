@@ -4,6 +4,7 @@ const defaultAvatarUrl = 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia0
 Page({
   data: {
     username: '',
+    userid:'',
     email: '',
     code: '',
     password: '',
@@ -19,6 +20,13 @@ Page({
       username: event.detail.value 
     });
     //console.log('已输入用户名', this.data.username);
+  },
+
+  // 学号输入变化时的处理函数
+  onUidChange: function(event) {
+    this.setData({
+      userid: event.detail.value 
+    });
   },
 
   // 邮箱输入变化时的处理函数
@@ -50,13 +58,19 @@ Page({
     });
   },
 
+  onCouldLog: function() {
+    wx.reLaunch({
+      url: '/pages/login/login',
+    })
+  },
+
   // 发送验证码的逻辑
   onSendCode: function() {
     // 这里应该有调用后端接口发送验证码到邮箱的代码
     console.log('发送验证码到邮箱:', this.data.email);
     
     wx.request({
-      url: 'https://dae9-2001-250-206-1699-accc-d700-aa2d-df44',
+      url: 'https://1137-2001-250-206-cb35-5867-b400-1366-2338.ngrok-free.app/api/send_verification_email/',
       method: 'POST',
       data: {
         //username: this.data.username,
@@ -68,13 +82,12 @@ Page({
         'content-type': 'application/json' // 设置请求的 header，header 中不能设置 Referer
       },
       success(res) {
-        if(res.data.res == 200){
+        if(res.statusCode === 200){
+          console.log('发送成功：')
           this.setData({
           codeSending: true,
           btnText: `已发送(${this.data.countDown}s)`
         });
-
-        // 开始倒计时
     this.startCountDown();
         }            
       },
@@ -126,19 +139,29 @@ Page({
       return;
     }
     // 这里应该有调用后端接口进行注册的代码
-    console.log('注册信息:', this.data);
+    
 
+    const requestData = {
+      username: this.data.username,
+      userid: this.data.userid,
+      email: this.data.email,
+      code: this.data.code,
+      password: this.data.password
+    };
+console.log('注册信息:', requestData);
     wx.request({
-      url: '你的注册接口URL',
+      url: 'https://1137-2001-250-206-cb35-5867-b400-1366-2338.ngrok-free.app/api/register/',
       method: 'POST',
-      data: {
-        username: this.data.username,
-        email: this.data.email,
-        code: this.data.code,
-        password: this.data.password
-      },
+      data: requestData,
       success(res) {
         // 处理注册成功的逻辑
+        if(res.statusCode === 200){
+          console.log('成功:');
+          wx.reLaunch({
+            url: '/pages/login/login',
+          })
+        }
+        console.log('错误信息:', res.data.error);
       },
       fail() {
         // 处理请求失败的逻辑
