@@ -1,7 +1,7 @@
 .container {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  width: 100%;
   padding: 20px;
 }
 
@@ -14,30 +14,81 @@
 
 .detail-info {
   width: 100%;
-  padding: 10px;
 }
 
 .info-wrapper {
-  margin-bottom: 15px;
-  margin-left: 15px;
-}
-.label {
-  display: block;
-  margin-bottom: 5px;
-}
-
-.value {
-  width: 80%;
-  height: 40px;
-  padding: 0 10px;
-  box-sizing: border-box;
-  font-size: 20px;
-  color: black;
-}
-
-.detail-text {
-  font-size: 16px;
-  color: #333;
   margin-bottom: 10px;
 }
 
+.label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.value {
+  color: #666;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.comment-list {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.comment {
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #f8f8f8;
+}
+
+.comment-author {
+  font-weight: bold;
+  color: #333;
+}
+
+.comment-content {
+  margin-top: 5px;
+  color: #666;
+}
+
+.comment-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+.sub-comments {
+  margin-left: 20px;
+  border-left: 2px solid rgb(129, 18, 18);
+  padding-left: 10px;
+}
+
+.comments-input-bar {
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px;
+  background-color: white;
+  align-items: center;
+  box-shadow: 0 -2px 5px rgba(0,0,0,0.1); /* 添加阴影效果 */
+}
+
+.comment-input {
+  flex-grow: 1;
+  margin-right: 10px;
+  border: 1px solid #ddd;
+  padding: 5px 10px;
+}
+
+.van-button {
+  min-width: 50px;
+}

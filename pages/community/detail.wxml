@@ -18,5 +18,41 @@
       <text class="value">{{brief}}</text>
     </view>
   </view>
+  <!-- 点赞和举报功能 -->
+  <view class="actions">
+    <van-button plain type="primary" icon="like-o" bindtap="handleLike">点赞 {{likesCount}}</van-button>
+    <van-button plain type="info" icon="warning-o" bindtap="handleReport">举报</van-button>
+  </view>
+
+  <!-- 评论区域 -->
+
+    <view class="comment-list">
+  <view class="comment" wx:for="{{comments}}" wx:key="id">
+    <text class="comment-author">{{item.author}}:</text>
+    <text class="comment-content">{{item.content}}</text>
+    <view class="comment-actions">
+    <van-button plain type="info" size="mini" bindtap="submitSubComment">评论</van-button>
+    <van-button plain type="danger" size="mini" bindtap="reportComment">举报</van-button>
+    </view>
+    
+    <!-- 二级评论迭代 -->
+    <view class="sub-comments" wx:if="{{item.subComments.length > 0}}">
+      <view class="comment sub-comment" wx:for="{{item.subComments}}" wx:for-item="subItem" wx:key="id">
+        <text class="comment-author">{{subItem.author}}:</text>
+        <text class="comment-content">{{subItem.content}}</text>
+        <view class="comment-actions">
+        <van-button plain type="info" size="mini" bindtap="submitSubComment">评论</van-button>
+        <van-button plain type="danger" size="mini" bindtap="reportSubComment">举报</van-button>
+        </view>        
+      </view>
+    </view>
+  </view>
+</view>
+
+  <view class="comments-input-bar">
+    <input type="text" placeholder="添加评论..." class="comment-input" />
+    <van-button type="primary" size="small" bindtap="submitComment">发送</van-button>
+  </view>
+
 </view>
 

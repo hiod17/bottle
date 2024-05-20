@@ -1,18 +1,4 @@
-<!-- <view class="container">
-  滚动图片展示栏
-  <swiper class="swiper-container" autoplay="true" interval="3000" duration="500" indicator-dots="true" circular="true">
-    <swiper-item>
-      <image src="/icons/global-icon.png" mode="aspectFill" class="swiper-image"></image>
-    </swiper-item>
-    <swiper-item>
-      <image src="/icons/global-icon.png" mode="aspectFill" class="swiper-image"></image>
-    </swiper-item>
-    <swiper-item>
-      <image src="/icons/global-icon.png" mode="aspectFill" class="swiper-image"></image>
-    </swiper-item>
-  </swiper>
-</view> -->
-
+<!-- community.wxml -->
 <image src="/icons/global-icon.png" class="global-icon"></image>
 <view class="form-wrapper">
   <!-- 欢迎 -->
