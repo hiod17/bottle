@@ -1,8 +1,13 @@
 <view class="container">
+  <image class="header-image" src="/icons/alarm.png" />
   <view class="detail-info">
     <view class="info-wrapper">
       <text class="label">水瓶选手</text>
       <text class="value">{{person}}</text>
+    </view>
+    <view class="info-wrapper">
+      <text class="label">学院</text>
+      <text class="value">{{college}}</text>
     </view>
     <view class="info-wrapper">
       <text class="label">性别</text>
@@ -22,4 +27,3 @@
     </view>
   </view>
 </view>
-

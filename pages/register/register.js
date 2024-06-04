@@ -1,6 +1,6 @@
 
 const defaultAvatarUrl = 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
-
+import { BASE_URL } from '../../utils/config.js';
 Page({
   data: {
     username: '',
@@ -27,6 +27,8 @@ Page({
     this.setData({
       userid: event.detail.value 
     });
+    console.log('已输入学号', this.data.userid);
+
   },
 
   // 邮箱输入变化时的处理函数
@@ -66,33 +68,33 @@ Page({
 
   // 发送验证码的逻辑
   onSendCode: function() {
-    // 这里应该有调用后端接口发送验证码到邮箱的代码
-    console.log('发送验证码到邮箱:', this.data.email);
-    
+    // Check if code is already sending
+    if (this.data.codeSending) {
+      return; // If sending, do nothing
+    }
+  
+    // Send request to backend to send verification email
     wx.request({
-      url: 'https://1137-2001-250-206-cb35-5867-b400-1366-2338.ngrok-free.app/api/send_verification_email/',
+      url: `${BASE_URL}send_verification_email/`,
       method: 'POST',
       data: {
-        //username: this.data.username,
-        email: this.data.email,
-        // code: this.data.code,
-        // password: this.data.password
+        email: this.data.email
       },
       header: {
-        'content-type': 'application/json' // 设置请求的 header，header 中不能设置 Referer
+        'content-type': 'application/json' // Set request header
       },
-      success(res) {
-        if(res.statusCode === 200){
-          console.log('发送成功：')
+      success: (res) => {
+        if (res.statusCode === 200) {
+          console.log('发送成功：', res);
           this.setData({
-          codeSending: true,
-          btnText: `已发送(${this.data.countDown}s)`
-        });
-    this.startCountDown();
-        }            
+            codeSending: true, // Set codeSending to true to indicate sending
+            btnText: `已发送(${this.data.countDown}s)` // Update button text with countdown
+          });
+          this.startCountDown(); // Start countdown
+        }
       },
-      fail() {
-        // 弹窗
+      fail: () => {
+        // Show toast message if request fails
         wx.showToast({
           title: '发送失败请重试',
           icon: 'none'
@@ -100,31 +102,30 @@ Page({
       }
     });
   },
-
-  // 开始倒计时的函数
+  
   startCountDown: function() {
-    let countDown = this.data.countDown;
+    let countDown = this.data.countDown; // Get initial countdown value
     const timer = setInterval(() => {
-      countDown--;
+      countDown--; // Decrement countdown
       this.setData({
-        btnText: `已发送(${countDown}s)`
+        btnText: `已发送(${countDown}s)` // Update button text with remaining seconds
       });
-
+  
       if (countDown == 0) {
-        clearInterval(timer);
+        clearInterval(timer); // Clear interval if countdown reaches 0
         this.setData({
-          btnText: '重新发送',
-          codeSending: false,
-          countDown: 60 // 重置倒计时
+          btnText: '重新发送', // Reset button text
+          codeSending: false, // Reset codeSending to false
+          countDown: 60 // Reset countdown value
         });
       }
-    }, 1000);
+    }, 1000); // Run every second
   },
 
   // 注册的逻辑
   onRegister: function() {
     // 在这里进行基本的输入验证
-    if (!this.data.username || !this.data.email || !this.data.code || !this.data.password) {
+    if (!this.data.username || !this.data.email || !this.data.code || !this.data.password || !this.data.userid) {
       wx.showToast({
         title: '请填写所有字段',
         icon: 'none'
@@ -150,21 +151,31 @@ Page({
     };
 console.log('注册信息:', requestData);
     wx.request({
-      url: 'https://1137-2001-250-206-cb35-5867-b400-1366-2338.ngrok-free.app/api/register/',
+      url: `${ BASE_URL }register/`,
       method: 'POST',
       data: requestData,
       success(res) {
         // 处理注册成功的逻辑
         if(res.statusCode === 200){
           console.log('成功:');
+          wx.showToast({
+            title: '注册成功，请登录',
+            icon: 'none'
+          });
           wx.reLaunch({
             url: '/pages/login/login',
           })
         }
-        console.log('错误信息:', res.data.error);
+        else{
+          console.log('错误信息:', res.data.error);
+        }        
       },
       fail() {
         // 处理请求失败的逻辑
+        wx.showToast({
+          title: '注册失败，请稍后重试',
+          icon: 'none'
+        });
       }
     });
   }

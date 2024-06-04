@@ -9,6 +9,12 @@
     <input type="text" class="input" placeholder="请输入用户名" bindinput="onUsernameChange" />
   </view>
 
+<!-- 学号输入框 -->
+  <view class="input-wrapper">
+    <text class="label">学号</text>
+    <input type="text" class="input" placeholder="请输入学号" bindinput="onUseridChange" />
+  </view>
+
   <!-- 邮箱输入框 -->
   <view class="input-wrapper">
     <text class="label">邮箱</text>

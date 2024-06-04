@@ -1,27 +1,26 @@
-
-const defaultAvatarUrl = 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
-
+const defaultAvatarUrl = 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0';
+import { BASE_URL } from '../../utils/config.js';
 const app = getApp();
-
 Page({
   data: {
-    useremail : app.globalData.userInfo,
-    active : 'user',
+    useremail: app.globalData.userInfo,
+    active: 'user',
     userInfo: {
       avatarUrl: '',
       nickName: '',
       username: '',
+      userid: '',
       email: '',
       phone: '',
       address: ''
     }
   },
 
-  onForgotPass:function() {
+  onForgotPass: function() {
     wx.navigateTo({ url: '/pages/password/res_pass' });
   },
 
-  onQuit:function() {
+  onQuit: function() {
     wx.redirectTo({ url: '/pages/login/login' });
   },
 
@@ -31,45 +30,47 @@ Page({
   },
 
   getUserInfo() {
-    const simulatedApiResponse = {
-      avatarUrl: 'https://example.com/avatar.jpg',
-      nickName: '1',
-      username: 'xu',
-      email: '1806530009@qq.com',
-      phone: '12345678901',
-      address: '北京市海淀区中关村'
-    };
+    const useremail = this.data.useremail; // 获取全局变量 userInfo 中存储的 useremail
 
-    // 将获取到的数据设置到 userInfo 中
-    this.setData({
-      userInfo: simulatedApiResponse
+    if (!useremail) {
+      console.error('用户邮箱未定义');
+      return;
+    }
+
+    // 发送 POST 请求
+    wx.request({
+      url: `${BASE_URL}user_info_show/`, // 使用全局变量中的 BASE_URL
+      method: 'POST',
+      data: {
+        useremail: useremail // 将全局变量中的 useremail 作为 POST 请求的数据发送
+      },
+      header: {
+        'content-type': 'application/json' // 设置请求头
+      },
+      success: (res) => {
+        if (res.statusCode === 200) {
+          console.log('获取用户信息成功:', res.data);
+          // 将获取到的数据设置到 userInfo 中
+          this.setData({
+            userInfo: {
+            
+              username: res.data.User_name,
+              userid: res.data.Uid,
+              email: res.data.User_email,
+              phone: '', // 这里需要根据你的实际数据进行设置
+              address: '' // 这里需要根据你的实际数据进行设置
+            }
+          });
+        } else {
+          console.error('获取用户信息失败', res);
+        }
+      },
+      fail: (err) => {
+        console.error('请求失败', err);
+      }
     });
-    // const getUrl = `https://1137-2001-250-206-cb35-5867-b400-1366-2338.ngrok-free.app/api/user_info_show/?usermail=${encodeURIComponent(usermail)}`;
-    //  如果你使用实际的网络请求，可以使用 wx.request
-    //  wx.request({
-    //   url : 'https://1137-2001-250-206-cb35-5867-b400-1366-2338.ngrok-free.app/api/user_info_show/',
-    //   method: 'GET',
-    //   success: (res) => {
-    //     if (res.statusCode === 200) {
-    //       this.setData({
-    //         userInfo: res.data
-    //       });
-    //     } else {
-    //       console.error('获取用户信息失败', res);
-    //     }
-    //   },
-    //   fail: (err) => {
-    //     console.error('请求失败', err);
-    //   }
-    // });
-
-    // 将获取到的数据设置到 userInfo 中
-    // this.setData({
-    //   userInfo: simulatedApiResponse
-    // });
-
-   
   },
+
   onChange(event) {
     const index = event.detail;
     this.setData({ active: index });
@@ -88,6 +89,3 @@ Page({
     }
   }
 });
-
-
-

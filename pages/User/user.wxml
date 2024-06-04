@@ -16,6 +16,12 @@
     <text class="value">{{userInfo.email}}</text>
   </view>
 
+  <!-- 学号输入框 -->
+  <view class="info-wrapper">
+    <text class="label">学号</text>
+    <text class="value">{{userInfo.userid}}</text>
+  </view>
+
   <!-- 按钮 -->
 <view class="button-container">
   <!-- 注册按钮 -->

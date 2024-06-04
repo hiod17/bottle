@@ -1,8 +1,9 @@
 {
   "pages": [
-    "pages/entrance/main",
     "pages/login/login",
     "pages/register/register",
+    "pages/entrance/main",
+    
     "pages/password/forgot_pass",
     "pages/community/community",
     

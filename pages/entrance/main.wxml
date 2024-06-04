@@ -11,7 +11,7 @@
   indicator-active-color="#000000"    
   class="swiper">
   <swiper-item>
-    <image src="/images/1.jpg" class="swiper-image"></image>
+    <image src="/images/title1.png" class="swiper-image"></image>
   </swiper-item>
   <swiper-item>
     <image src="/images/2.jpg" class="swiper-image"></image>
